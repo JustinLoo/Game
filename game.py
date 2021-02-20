@@ -1,26 +1,12 @@
-
-import pygame
-pygame.init()
-
-
-screen = pygame.display.set_mode([500, 500])
+from tkinter import*
+import random
+import time
 
 
-running = True
-while running:
-
-    
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-
-    
-    screen.fill((255, 255, 255))
-
-    
-    pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
-
-    
-    pygame.display.flip()
-
-pygame.quit()
+class Game:
+    def __init__(self):
+        self.tk()
+        self.tk.title("Stick Man game | Real Mape and Fake Mape!")
+        
+        self.tk.resizable(0, 0)
+        self.tk.wm_attributes("-topmost", 1)
