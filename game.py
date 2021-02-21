@@ -1,35 +1,51 @@
-# Import module  
-from tkinter import *
-  
-# Create object  
-root = Tk() 
-  
-# Adjust size  
-root.geometry("400x400") 
-  
-# Add image file 
-bg = PhotoImage(file = "Your_image.png") 
-  
-# Show image using label 
-label1 = Label( root, image = bg) 
-label1.place(x = 0, y = 0) 
-  
-label2 = Label( root, text = "Welcome") 
-label2.pack(pady = 50) 
-  
-# Create Frame 
-frame1 = Frame(root) 
-frame1.pack(pady = 20 ) 
-  
-# Add buttons 
-button1 = Button(frame1,text="Exit") 
-button1.pack(pady=20) 
-  
-button2 = Button( frame1, text = "Start") 
-button2.pack(pady = 20) 
-  
-button3 = Button( frame1, text = "Reset") 
-button3.pack(pady = 20) 
-  
-# Execute tkinter 
-root.mainloop()
+import math
+import random
+
+import pygame
+from pygame import mixer
+
+# Intialize the pygame
+pygame.init()
+
+# create the screen
+screen = pygame.display.set_mode((1400, 960))
+
+# Background
+background = pygame.image.load('background2.jpg')
+
+
+
+
+pygame.display.set_caption("Terpe")
+
+
+# Player
+playerImg = pygame.image.load('bully.png')
+
+
+
+
+
+
+
+
+
+
+
+
+# Game Loop
+running = True
+while running:
+
+    # RGB = Red, Green, Blue
+    screen.fill((0, 0, 0))
+    # Background Image
+    screen.blit(background, (0, 0))
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+        # if keystroke is pressed check whether its right or left
+        
+   
+    
