@@ -1,51 +1,51 @@
-import math
-import random
+import pygame, sys
+from pygame.locals import *
 
-import pygame
-from pygame import mixer
-
-# Intialize the pygame
+# initialize game engine
 pygame.init()
 
-# create the screen
-screen = pygame.display.set_mode((1400, 960))
+window_width=1440
+window_height=960
 
-# Background
-background = pygame.image.load('background2.jpg')
-
-
+animation_increment=10
+clock_tick_rate=20
 
 
-pygame.display.set_caption("Terpe")
+size = (window_width, window_height)
+screen = pygame.display.set_mode(size)
 
 
-# Player
-playerImg = pygame.image.load('bully.png')
+pygame.display.set_caption("Game")
 
-
+mainChar = pygame.image.load('bully.png')
 
 
 
 
 
+dead=False
 
+clock = pygame.time.Clock()
+background_image = pygame.image.load("background2.jpg").convert()
 
+while(dead==False):
 
-
-
-# Game Loop
-running = True
-while running:
-
-    # RGB = Red, Green, Blue
-    screen.fill((0, 0, 0))
-    # Background Image
-    screen.blit(background, (0, 0))
+    angle = None
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            dead = True
 
-        # if keystroke is pressed check whether its right or left
-        
-   
+    events = pygame.event.get()
+    for event in events:
+        if event.key == pygame.K_LEFT:
+
+            
+             
+
     
+
+    screen.blit(background_image, [0, 0])
+    screen.blit(mainChar, [630,520])
+
+    pygame.display.flip()
+    clock.tick(clock_tick_rate)
