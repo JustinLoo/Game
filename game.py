@@ -7,9 +7,6 @@ pygame.init()
 window_width=1440
 window_height=960
 
-animation_increment=10
-clock_tick_rate=20
-
 
 size = (window_width, window_height)
 screen = pygame.display.set_mode(size)
@@ -17,35 +14,51 @@ screen = pygame.display.set_mode(size)
 
 pygame.display.set_caption("Game")
 
+
+
+mainRect = mainChar.get_rect(center = (300,300))
+
+angle = 0
+clock = pygame.time.Clock()
+
+
+#images
 mainChar = pygame.image.load('bully.png')
 
-
-
-
-
-dead=False
-
-clock = pygame.time.Clock()
 background_image = pygame.image.load("background2.jpg").convert()
 
-while(dead==False):
 
-    angle = None
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            dead = True
 
-    events = pygame.event.get()
-    for event in events:
-        if event.key == pygame.K_LEFT:
 
-            
-             
 
-    
+def rotate(surface, angle):
+    rotated_surface = pygame.transform.rotozoom(surface, angle,1)
+    rotated_rect = rotated_surface.get_rect(center = (720,620))
+    return rotated_surface,rotated_rect
+
+
+def main():
+    while True:
+   
+    angle += 1
+
+    mainChar_rotated, mainRect_rect = rotate(mainChar, angle)
 
     screen.blit(background_image, [0, 0])
-    screen.blit(mainChar, [630,520])
 
+    screen.blit(mainChar_rotated, mainRect_rect)
+   
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    
+    pygame.display.update()
+    
     pygame.display.flip()
-    clock.tick(clock_tick_rate)
+    clock.tick(30)
+
+
+
+
